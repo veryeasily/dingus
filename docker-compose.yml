@@ -1,0 +1,21 @@
+version: '2.4'
+services:
+  app:
+    build:
+      context: ./
+    image: dingus:1.0.0
+    ports:
+      - 3000:3000
+      - 9222:9222
+    stdin_open: true
+    tty: true
+    init: true
+    volumes:
+      - ./:/app/dingus
+      - vim-plug:/root/.vim/plugged
+      - yarn-cache:/root/.yarn-cache
+      - node-modules:/app/veryeasily/node_modules
+volumes:
+  vim-plug:
+  yarn-cache:
+  node-modules:

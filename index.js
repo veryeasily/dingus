@@ -1,12 +1,7 @@
-const Koa = require('koa')
-const app = new Koa();
-const bodyParser = require('koa-bodyparser')
+// index.js 
+// by requiring `babel/register`, all of our successive `require`s will be Babel'd
+require('babel-register')({
+   presets: [ 'es2015' ]
+});
 
-app.use(bodyParser())
-
-app.use(async ctx => {
-  console.log(ctx.request.body.text)
-  ctx.body = 'Hello World'
-})
-
-app.listen(3000)
+require('./server');

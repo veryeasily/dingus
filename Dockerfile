@@ -21,4 +21,4 @@ WORKDIR $APP_DIR
 RUN "yarn"
 EXPOSE 3000
 EXPOSE 9222
-CMD node --inspect=0.0.0.0:9222 -r dotenv/config index.js
+CMD yarn start

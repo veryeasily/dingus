@@ -14,7 +14,7 @@ app.use(bodyParser())
 app.use(async (ctx, next) => {
   if (!(typeof ctx.request.body === 'object')) { return; }
   if (ctx.request.body.sender_type === 'bot') { return; }
-  if (!ctx.request.body.text.match(/@dingus/)) { return; }
+  if (!ctx.request.body.text.match(/@dingus /)) { return; }
   next()
 })
 
@@ -35,7 +35,11 @@ app.use(async ctx => {
     ctx.body = 'Hello World'
   } else {
     const msg = text.match(/@dingus\s(.*)/i)[1]
-    const resp = await axios.get(`txtingus:5000/{msg}`)
+    const resp = await axios.get(`http://txtingus:5000/{msg}`)
+    const temp2 = await axios.post(GROUPME_API_PATH, {
+      bot_id: BOT_ID,
+      text: resp.data
+    })
     ctx.body = 'Hello World'
   }
 })

@@ -35,7 +35,9 @@ app.use(async ctx => {
     ctx.body = 'Hello World'
   } else {
     const msg = text.match(/@dingus\s(.*)/i)[1]
-    const resp = await axios.get(`http://txtingus:5000/{msg}`)
+    const resp = await axios.get(
+      `http://txtingus:5000/${encodeURIComponent(msg)}`
+    )
     const temp2 = await axios.post(GROUPME_API_PATH, {
       bot_id: BOT_ID,
       text: resp.data

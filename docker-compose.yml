@@ -10,11 +10,16 @@ services:
     stdin_open: true
     tty: true
     init: true
+    networks:
+      - dingusnet
     volumes:
       - ./:/app/dingus
       - vim-plug:/root/.vim/plugged
       - yarn-cache:/root/.yarn-cache
       - node-modules:/app/veryeasily/node_modules
+networks:
+  dingusnet:
+    external: true
 volumes:
   vim-plug:
   yarn-cache:

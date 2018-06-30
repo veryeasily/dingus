@@ -11,22 +11,33 @@ import { BOT_ID, GROUPME_API_PATH, LOCATIONS } from './constants'
 
 app.use(bodyParser())
 
-app.use(async ctx => {
+app.use(async (ctx, next) => {
   if (!(typeof ctx.request.body === 'object')) { return; }
   if (ctx.request.body.sender_type === 'bot') { return; }
-  if (!ctx.request.body.text.match(/^@dingus\s.*weather/)) { return; }
-  const data = await weather(LOCATIONS)
-  const cleanedData = map(i => (
-    merge(i[0].data, pick(['name'])(i[1]))
-  ), zip(data, LOCATIONS))
-  const summaries = map(i => {
-    return `${i.name}: ${i.hourly.summary}`
-  }, cleanedData)
-  const temp = await axios.post(GROUPME_API_PATH, {
-    bot_id: BOT_ID,
-    text: summaries.join('\n\n')
-  })
-  ctx.body = 'Hello World'
+  if (!ctx.request.body.text.match(/@dingus/)) { return; }
+  next()
+})
+
+app.use(async ctx => {
+  const text = ctx.request.body.text
+  if (text.match(/@dingus\s.*weather/i)) {
+    const data = await weather(LOCATIONS)
+    const cleanedData = map(i => (
+      merge(i[0].data, pick(['name'])(i[1]))
+    ), zip(data, LOCATIONS))
+    const summaries = map(i => {
+      return `${i.name}: ${i.hourly.summary}`
+    }, cleanedData)
+    const temp = await axios.post(GROUPME_API_PATH, {
+      bot_id: BOT_ID,
+      text: summaries.join('\n\n')
+    })
+    ctx.body = 'Hello World'
+  } else {
+    const msg = text.match(/@dingus\s(.*)/i)[1]
+    const resp = await axios.get(`txtingus:5000/{msg}`)
+    ctx.body = 'Hello World'
+  }
 })
 
 app.listen(3000)

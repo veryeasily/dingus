@@ -26,7 +26,7 @@ app.use(async ctx => {
       merge(i[0].data, pick(['name'])(i[1]))
     ), zip(data, LOCATIONS))
     const summaries = map(i => {
-      return `${i.name}: ${i.hourly.summary}`
+      return `${i.name}: ${i.hourly.summary} ${i.currently.temperature}F°`
     }, cleanedData)
     const temp = await axios.post(GROUPME_API_PATH, {
       bot_id: BOT_ID,

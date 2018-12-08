@@ -33,6 +33,11 @@ app.use(async ctx => {
       text: summaries.join('\n\n')
     })
     ctx.body = 'Hello World'
+  } else if(text.match(/@dingus\s*who's better/)) {
+    axios.post(GROUPME_API_PATH, {
+      bot_id: BOT_ID,
+      text: "Nick is better than Tim"
+    })
   } else {
     const msg = text.match(/@dingus\s(.*)/i)[1]
     const resp = await axios.get(

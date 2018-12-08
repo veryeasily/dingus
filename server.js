@@ -33,7 +33,7 @@ app.use(async ctx => {
       text: summaries.join('\n\n')
     })
     ctx.body = 'Hello World'
-  } else if(text.match(/@dingus\s*who's better/)) {
+  } else if(text.match(/@dingus\s*who.?s better/)) {
     const rand = Math.random()
     if (rand >= 0.90){
       axios.post(GROUPME_API_PATH, {

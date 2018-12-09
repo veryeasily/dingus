@@ -35,10 +35,30 @@ app.use(async ctx => {
     ctx.body = 'Hello World'
   } else if(text.match(/@dingus\s*who's better/)) {
     const rand = Math.random()
-    if (rand >= 0.90){
+    if (rand >= 0.99){
+      axios.post(GROUPME_API_PATH, {
+        bot_id: BOT_ID,
+        text: "Nick is master of the known world"
+      })
+    } else if (rand >=0.98){
+      axios.post(GROUPME_API_PATH, {
+        bot_id: BOT_ID,
+        text: "Nick reigns supreme"
+      })
+    } else if (rand >=0.93){
       axios.post(GROUPME_API_PATH, {
         bot_id: BOT_ID,
         text: "Nick is superior to Tim"
+      })
+    } else if (rand >=0.915){
+      axios.post(GROUPME_API_PATH, {
+        bot_id: BOT_ID,
+        text: "This time it is Sam"
+      })
+    } else if (rand >=0.9){
+      axios.post(GROUPME_API_PATH, {
+        bot_id: BOT_ID,
+        text: "Wayne wins this round"
       })
     } else if (0.75 < rand && rand <0.9){
       axios.post(GROUPME_API_PATH, {
@@ -65,10 +85,15 @@ app.use(async ctx => {
         bot_id: BOT_ID,
         text: "Tim is vastly better than Nick"
       })
-    } else if (0.01 <= rand && rand <0.1){
+    } else if (0.03 <= rand && rand <0.1){
       axios.post(GROUPME_API_PATH, {
         bot_id: BOT_ID,
         text: "Tim is superior to Nick"
+      })
+    } else if (rand >= .01){
+      axios.post(GROUPME_API_PATH, {
+        bot_id: BOT_ID,
+        text: "Tim is the new god of this land"
       })
     } else if (rand <0.01){
       axios.post(GROUPME_API_PATH, {

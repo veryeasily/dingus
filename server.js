@@ -60,7 +60,7 @@ app.use(async ctx => {
         bot_id: BOT_ID,
         text: "Nick is master of the known world"
       })
-    } else if (0.45 <= rand && rand <=0.74){
+    } else if (0.45 <= rand && rand <0.74){
       axios.post(GROUPME_API_PATH, {
         bot_id: BOT_ID,
         text: "Nick is better than Tim"

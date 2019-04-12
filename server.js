@@ -103,6 +103,12 @@ app.use(async ctx => {
         text: "Tim is better than Tim"
       })
     }
+  } else if(text.match(/@dingus\s*(who wins|who triumphs|who succeeds|who reigns supreme|who is president|who is ultimate|who is the dankest|who is the most dank)/)) {
+    const person = people[Math.random() * people.length)];
+    axios.post(GROUPME_API_PATH, {
+        bot_id: BOT_ID,
+        text: person + " is best!"
+    })
   } else {
     const msg = text.match(/@dingus\s(.*)/i)[1]
     const resp = await axios.get(
@@ -113,12 +119,7 @@ app.use(async ctx => {
       text: resp.data
     })
     ctx.body = 'Hello World'
-  } else if(text.match(/@dingus\s*(who wins|who triumphs|who succeeds|who reigns supreme|who is president|who is ultimate|who is the dankest|who is the most dank)/)) {
-    const person = people[Math.random() * people.length)];
-    axios.post(GROUPME_API_PATH, {
-        bot_id: BOT_ID,
-        text: person + " is best!"
-    })
+  }
 })
 
 

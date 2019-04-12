@@ -3,7 +3,7 @@ import axios from 'axios'
 const Koa = require('koa')
 const app = new Koa();
 const bodyParser = require('koa-bodyparser')
-const people = ['Tim', 'Timbo', 'The Gun', 'Dorsey', 'DorDor', 'The Dor', 'Tambo', 'Lydia', 'LYDIA', 'Gibbers', 'LYDIA MF GIBSON', 'Matt', 'Splatt', 'Swanson', 'Matthew The Swan`s Son', 'Sam', 'Slambo', 'Slammy', 'Ham Sartman', 'Wayne', 'wayne', 'Wayner', 'Waynedawg', 'Luke', 'Lucas', 'the4thoffense','khaos', 'Brent', 'BCROUCH', 'Brento', 'Pookus', 'Lukewarm', 'Thunderwood', 'iLukeU!!', '@Zo', 'Lil Bit', 'Freya', 'Ian', 'I A N', 'Kent', 'Kenny', 'Kenbo', 'Butt', 'Nick', 'Nickles', 'Big Poppa P', 'Packy', 'The Tired', 'Tacos', 'Possum Blood', 'Cheese']
+const people = ['Tim', 'Timbo', 'The Gun', 'Dorsey', 'DorDor', 'The Dor', 'max', 'Maxwell', 'Max', 'Maxwell Murder', 'Tambo', 'Lydia', 'LYDIA', 'Gibbers', 'LYDIA MF GIBSON', 'Matt', 'Splatt', 'Swanson', 'Matthew The Swan`s Son', 'Sam', 'Slambo', 'Slammy', 'Ham Sartman', 'Wayne', 'wayne', 'Wayner', 'Waynedawg', 'Luke', 'Lucas', 'the4thoffense','khaos', 'Brent', 'BCROUCH', 'Brento', 'Pookus', 'Lukewarm', 'Thunderwood', 'iLukeU!!', '@Zo', 'Lil Bit', 'Freya', 'Ian', 'I A N', 'Kent', 'Kenny', 'Kenbo', 'Butt', 'Nick', 'Nickles', 'Big Poppa P', 'Packy', 'The Tired', 'Tacos', 'Possum Blood', 'Cheese']
 
 
 axios.defaults.headers.post['Content-Type'] = 'application/json'

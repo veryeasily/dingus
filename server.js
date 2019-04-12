@@ -103,8 +103,8 @@ app.use(async ctx => {
         text: "Tim is better than Tim"
       })
     }
-  } else if(text.match(/@dingus\s*(who wins|who triumphs|who succeeds|who reigns supreme|who is president|who is ultimate|who is the dankest|who is the most dank)/)) {
-    const person = people[Math.random() * people.length)];
+  } else if(text.match(/@dingus\s*(who wins|who triumphs|who succeeds|who is a dingus|who is a dweeb|who is king dingus|who da best|whom is winst|who winner is|who reigns supreme|who is president|who is ultimate|who is the dankest|who is the most dank)/)) {
+    const person = people[Math.floor(Math.random() * people.length)]
     axios.post(GROUPME_API_PATH, {
         bot_id: BOT_ID,
         text: person + " is best!"

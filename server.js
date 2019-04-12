@@ -3,6 +3,8 @@ import axios from 'axios'
 const Koa = require('koa')
 const app = new Koa();
 const bodyParser = require('koa-bodyparser')
+const people = ['Tim', 'Timbo', 'The Gun', 'Dorsey', 'DorDor', 'The Dor', 'Tambo', 'Lydia', 'LYDIA', 'Gibbers', 'LYDIA MF GIBSON', 'Matt', 'Splatt', 'Swanson', 'Matthew The Swan`s Son', 'Sam', 'Slambo', 'Slammy', 'Ham Sartman', 'Wayne', 'wayne', 'Wayner', 'Waynedawg', 'Luke', 'Lucas', 'the4thoffense','khaos', 'Brent', 'BCROUCH', 'Brento', 'Pookus', 'Lukewarm', 'Thunderwood', 'iLukeU!!', '@Zo', 'Lil Bit', 'Freya', 'Ian', 'I A N', 'Kent', 'Kenny', 'Kenbo', 'Butt', 'Nick', 'Nickles', 'Big Poppa P', 'Packy', 'The Tired', 'Tacos', 'Possum Blood', 'Cheese']
+
 
 axios.defaults.headers.post['Content-Type'] = 'application/json'
 
@@ -111,7 +113,14 @@ app.use(async ctx => {
       text: resp.data
     })
     ctx.body = 'Hello World'
-  }
+  } else if(text.match(/@dingus\s*(who wins|who triumphs|who succeeds|who reigns supreme|who is president|who is ultimate|who is the dankest|who is the most dank)/)) {
+    const person = people[Math.random() * people.length)];
+    axios.post(GROUPME_API_PATH, {
+        bot_id: BOT_ID,
+        text: person + " is best!"
+    })
 })
+
+
 
 app.listen(3000)

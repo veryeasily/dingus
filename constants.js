@@ -8,9 +8,9 @@ export const LOCATIONS = [
     lon: -94.571056
   },
   {
-    name: 'Lincoln',
-    lat: 40.821122,
-    lon: -96.701013
+    name: 'Cortland',
+    lat: 42.600888,
+    lon: -76.180592
   },
   {
     name: 'New York',

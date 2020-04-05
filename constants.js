@@ -26,5 +26,10 @@ export const LOCATIONS = [
     name: 'St. Louis',
     lat: 38.6270,
     lon: -90.1994
+  },
+  {
+    name: 'Oakland',
+    lat: 37.846400,
+    lon: -122.259770
   }
 ]
